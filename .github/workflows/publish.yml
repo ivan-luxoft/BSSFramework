@@ -40,6 +40,6 @@ jobs:
       - name: Publish
         working-directory: ./src/out
         run: |
-          dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json --api-key ${NUGET_TOKEN}
+          dotnet nuget push Luxoft.Framework.Configurator*.nupkg -s https://api.nuget.org/v3/index.json --api-key ${NUGET_TOKEN}
         env:
           NUGET_TOKEN: ${{ secrets.NUGET_BSSFRAMEWORK }}
