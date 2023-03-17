@@ -21,10 +21,10 @@ jobs:
 
       - name: Set up node.js
         uses: actions/setup-node@v3.3.0
-        with:
-          node-version: '16.13.2'
-          cache: 'npm'
-          cache-dependency-path: ./src/Framework.Configurator/configurator-ui
+#        with:
+#          node-version: '16.13.2'
+#          cache: 'npm'
+#          cache-dependency-path: ./src/Framework.Configurator/configurator-ui
           
       - name: Build UI
         working-directory: ./src/Framework.Configurator/configurator-ui
