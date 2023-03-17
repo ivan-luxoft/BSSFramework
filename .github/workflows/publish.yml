@@ -19,11 +19,17 @@ jobs:
         with:
           dotnet-version: 7.0.100
 
-#      - name: Build UI
-#        working-directory: ./src/Framework.Configurator/configurator-ui
-#        run: |
-#          npm ci
-#          npm run ng build
+      - name: Set up node.js
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '16'
+          cache: 'npm'
+          
+      - name: Build UI
+        working-directory: ./src/Framework.Configurator/configurator-ui
+        run: |
+          npm ci
+          npm run ng build
 
       - name: Restore dependencies
         working-directory: ./src
