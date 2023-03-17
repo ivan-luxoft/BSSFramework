@@ -1,6 +1,11 @@
 name: Publish to Nuget
 
-on: workflow_dispatch  
+on: 
+  workflow_dispatch:
+    inputs:
+      nugetVersion:
+        description: 'nuget packaget version'
+        required: true
 
 jobs:
   build:
@@ -28,7 +33,7 @@ jobs:
       - name: Build and Pack
         working-directory: ./src
         run: |
-          dotnet pack IAD.Framework.sln --no-restore /p:InformationalVersion=${{ github.sha }} -c Release -o out
+          dotnet pack IAD.Framework.sln --no-restore  /p:PackageVersion=${{ inputs.nugetVersion }} /p:InformationalVersion=${{ github.sha }} -c Release -o out
 
 #dotnet pack IAD.Framework.sln --no-restore /p:PackageVersion=${{ github.event.release.tag_name }} /p:InformationalVersion=${{ github.sha }} -c Release -o out
 
