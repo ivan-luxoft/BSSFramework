@@ -24,6 +24,8 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
+          working-directory: ./src/Framework.Configurator/configurator-ui
+          directory: ./src/Framework.Configurator/configurator-ui
           
       - name: Build UI
         working-directory: ./src/Framework.Configurator/configurator-ui
